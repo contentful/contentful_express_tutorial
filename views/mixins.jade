@@ -1,0 +1,33 @@
+mixin renderProducts(products)
+  for product in products
+    +renderProduct(product)
+
+mixin renderProduct(product)
+    .product-in-list
+      .product-image
+        +renderImage(product.fields.image[0], product.fields.slug)
+      .product-details
+        +renderProductDetails(product.fields)
+
+
+mixin renderImage(image, slug)
+  if image && image.fields.file
+    a(href="products/"+slug data-nav) 
+      img(src=image.fields.file.url alt=image.fields.title width="150" height="150")
+  else
+
+
+mixin renderProductDetails(fields)
+  +renderProductHeader(fields)
+  p.product-categories #{fields.categories.map(function(category){ return category.fields.title }).join(', ')}
+  p #{fields.productDescription}
+  p #{fields.price} &euro;
+  p.product-tags #{fields.tags.join(', ')}
+
+mixin renderProductHeader(fields)
+  .product-header
+    h2
+      a(href="products/"+fields.slug data-nav) #{fields.productName}
+    span  by
+    a(href="brand/"+fields.brand.sys.id data-env)  #{fields.brand.fields.companyName}
+    
