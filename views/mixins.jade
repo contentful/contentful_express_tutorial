@@ -1,6 +1,8 @@
 mixin renderProducts(products)
-  for product in products
-    +renderProduct(product)
+ h1 Products
+ .products
+    for product in products
+      +renderProduct(product)
 
 mixin renderProduct(product)
     .product-in-list
@@ -25,7 +27,7 @@ mixin renderProductDetails(fields)
   p.product-categories #{fields.categories.map(function(category){ return category.fields.title }).join(', ')}
   p #{fields.productDescription}
   p #{fields.price} &euro;
-  p.product-tags #{fields.tags.join(', ')}
+  +renderTags(fields.tags)
 
 mixin renderProductHeader(fields)
   .product-header
@@ -35,21 +37,52 @@ mixin renderProductHeader(fields)
     a(href="brand/"+fields.brand.sys.id data-env)  #{fields.brand.fields.companyName}
 
 mixin renderSingleProduct(singleProduct)
-  .product
+  .single-product
     .product-image
       +renderImage(singleProduct.fields.image[0], "", 300, 300)
-    .product-header
-      h2 #{singleProduct.fields.productName}
-      span   by
-      a(href="brand/"+singleProduct.fields.brand.sys.id data-nav) #{singleProduct.fields.brand.fields.companyName}
-    p.product-categories #{singleProduct.fields.categories.map(function(category){ return category.fields.title }).join(', ')}
-    p singleProduct.fields.productDescription
-    p Size/Type/Color: #{singleProduct.fields.sizetypecolor}
-    p #{singleProduct.fields.quantity} in stock
-    p #{singleProduct.fields.price} &euro;
-    p SKU: #{singleProduct.fields.sku}
-    p More details:
-      a(href=singleProduct.fields.website) #{singleProduct.fields.website}
-    p.product-tags
-      span Tags: #{singleProduct.fields.tags.join(', ')}
-      
+    .product-details
+      .product-header
+        h2 #{singleProduct.fields.productName}
+        span   by  
+        a(href="brand/"+singleProduct.fields.brand.sys.id data-nav) #{singleProduct.fields.brand.fields.companyName}
+      p.product-categories #{singleProduct.fields.categories.map(function(category){ return category.fields.title }).join(', ')}
+      p #{singleProduct.fields.productDescription}
+      p Size/Type/Color: #{singleProduct.fields.sizetypecolor}
+      p #{singleProduct.fields.quantity} in stock
+      p #{singleProduct.fields.price} &euro;
+      p SKU: #{singleProduct.fields.sku}
+      p More details: 
+        a(href=singleProduct.fields.website) #{singleProduct.fields.website}
+      +renderTags(singleProduct.fields.tags) 
+
+mixin renderTags(tags)
+  p.product-tags
+    span Tags:
+    ul.tags
+      for tag in tags
+        li.tag 
+          a(href="#") #{tag}
+
+mixin renderCategories(categories, products)
+  .categories
+    ul.categories-list
+      +renderCategoriesList(categories)
+    div
+      +renderProducts(products)
+
+mixin renderCategoriesList(categories)
+  li
+    a(href="/categories") All
+  for category in categories
+    li
+      img(src=category.fields.icon.fields.file.url width="20" height="20" alt=category.fields.categoryDescription title=category.fields.categoryDescription)
+      a(href="/categories/"+category.sys.id data-nav) #{category.fields.title} 
+
+
+
+
+
+
+
+
+

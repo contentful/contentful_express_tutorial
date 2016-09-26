@@ -17,8 +17,15 @@ router.use(function (req, res, next) {
   })
 })
 
-router.get('/:slug', function (req, res, next) {
+router.get('/products/:slug', function (req, res, next) {
   res.render('product', {title: req.product.fields.productName, product: req.product})
+})
+
+router.get('/products', function (req, res, next) {
+  res.render('products', {
+    'title': 'Products',
+    'products': req.products
+  })
 })
 
 router.get('/', function (req, res, next) {

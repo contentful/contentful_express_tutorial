@@ -14,7 +14,12 @@ function getProducts (query) {
   query.content_type = '2PqfXUJwE8qSYKuM0U6w8M'
   return client.getEntries(query)
 }
+
+function getProductsInCategory (id) {
+  return getProducts({'fields.categories.sys.id[in]': id})
+}
 module.exports = {
   getProduct,
-  getProducts
+  getProducts,
+  getProductsInCategory
 }
