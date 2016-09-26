@@ -15,7 +15,7 @@ mixin renderProduct(product)
 mixin renderImage(image, slug, w, h)
   if image && image.fields.file
     if slug != ""
-      a(href="products/"+slug data-nav) 
+      a(href="/products/"+slug data-nav) 
         img(src=image.fields.file.url alt=image.fields.title width=w height=h)
     else
       img(src=image.fields.file.url alt=image.fields.title width=w height=h)
@@ -32,7 +32,7 @@ mixin renderProductDetails(fields)
 mixin renderProductHeader(fields)
   .product-header
     h2
-      a(href="products/"+fields.slug data-nav) #{fields.productName}
+      a(href="/products/"+fields.slug data-nav) #{fields.productName}
     span  by
     a(href="brand/"+fields.brand.sys.id data-env)  #{fields.brand.fields.companyName}
 
@@ -44,7 +44,7 @@ mixin renderSingleProduct(singleProduct)
       .product-header
         h2 #{singleProduct.fields.productName}
         span   by  
-        a(href="brand/"+singleProduct.fields.brand.sys.id data-nav) #{singleProduct.fields.brand.fields.companyName}
+        a(href="/brand/"+singleProduct.fields.brand.sys.id data-nav) #{singleProduct.fields.brand.fields.companyName}
       p.product-categories #{singleProduct.fields.categories.map(function(category){ return category.fields.title }).join(', ')}
       p #{singleProduct.fields.productDescription}
       p Size/Type/Color: #{singleProduct.fields.sizetypecolor}
