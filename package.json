@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "npm run production",
+    "heroku-prebuild": "npm install",
     "dev": "NODE_EN=development nodemon ./bin/www",
     "production": "NODE_EN=production node ./bin/ww",
     "deploy": ""
