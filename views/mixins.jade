@@ -17,9 +17,11 @@ mixin renderImage(image, slug, w, h)
     if slug != ""
       a(href="/products/"+slug data-nav) 
         img(src=image.fields.file.url alt=image.fields.title width=w height=h)
-    else
+    else if(w && h)
       img(src=image.fields.file.url alt=image.fields.title width=w height=h)
-  else
+    else
+      img(src=image.fields.file.url alt=image.fields.title)
+  else 
 
 
 mixin renderProductDetails(fields)
@@ -79,10 +81,18 @@ mixin renderCategoriesList(categories)
       a(href="/categories/"+category.sys.id data-nav) #{category.fields.title} 
 
 
-
-
-
-
-
-
+mixin renderBrand(brand)
+  .brand
+    h2 #{brand.fields.companyName}
+    div
+      +renderImage(brand.fields.logo)
+    p #{brand.fields.companyDescription}
+    p
+      a(href=brand.fields.website) #{brand.fields.website}
+    p
+      a(href=brand.fields.twitter) #{brand.fields.twitter}
+    p
+      a(href=brand.fields.email) #{brand.fields.email}
+    p
+      a(href=brand.fields.phone) #{brand.fields.phone}
 
