@@ -1,12 +1,12 @@
 var client = require('./contentfulClient').client
 
 function getCategory (id, query) {
-  // little hack to get an entry with include
+  // little trick to get an entry with include
   // this way all linked items will be resolved for us
   query = query || {}
   query['content_type'] = '6XwpTaSiiI2Ak2Ww0oi6qa'
   query['sys.id'] = id
-  return client.getEntries(query)
+  return client.getEnries(query)
 }
 
 function getCategories (query) {

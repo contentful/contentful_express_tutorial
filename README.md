@@ -1,10 +1,11 @@
-This guide will walk you through your first steps using Contentful within a Express js application. It will provide a step-by-step guide on how to get your first entries and start using the content you create on Contentful.
+This guide will walk you through your first steps using Contentful within an Express Node js application. It will provide a step-by-step guide on how to get your first entries and start using the content you create on Contentful.
 
 ## Requirements
 
 - A [Heroku][1] account
-- [Node.js] [2]
-- [Npm] [13]
+- [Heroku CLI][14] installed
+- [Node.js] [2] 6.2.1 installed 
+- Npm 3.10.7 which should be installed with Nodejs
 - [Git][12] installed
 - Basic Command Line Interface knowledge
 
@@ -50,29 +51,31 @@ You can create your own custom data by following these steps:
 
 - Create an account with [Contentful][6] or [Log In][5].
 - Create a new Space with the 'Product Catalogue' template, name it whatever you like.
+- Copy the space Id and api key as shown in the screenshot
+
+![Keys Page](keys_and_ids.png)
+
 - In the Express js application:
   - navigate to the package.json file open it and change the values `accessToken` and `space` in the `config` section and save.
   - run `npm run dev` to start the server
   - Your space will be now displayed in your application
 
-![Keys Page](keys_and_ids.png)
 
 Next in the _[Contentful web app][6] > Content_:
 
 - Open the product called 'Playsam Streamliner Classic Car, Espresso'.
 - Change the value of the _Product name_ field to a new value,
-- Click the _Publish changes_ button./Users/kgarbaya/Desktop/full-stack-getting-started/create-your-own-expresjs-app.md
+- Click the _Publish changes_ button
 - Wait a few seconds for the changes to propagate to the CDN.
 - Reload your Express js application and you will see the new product name.
 
-You can continue to edit your content inside the [Contentful web app][13] and see the content change inside your Rails application.
+You can continue to edit your content inside the [Contentful web app][13] and see the content change inside your application.
 
 ### Deploy the demo to Heroku
 
 To view the demo application live in your own production environment, follow these steps:
 
-- Install [Heroku](https://devcenter.heroku.com/articles/heroku-command-line#download-and-install) if you don't already have it.
-- Login to Heroku if you're not already:
+- Having Heroku CLI Installed, Login to Heroku if you're not logged in already:
 
 ~~~bash
 heroku login
@@ -107,7 +110,7 @@ heroku open
 
 After this guide, you should be able to start using Contentful with your Express js applications, but every project has different needs and we want to provide you with the best solutions we can.
 
-You can read about the Contentful CDA library in more detail on our [contentful.js GitHub][1] or our [Getting Started with CDA SDK tutorial][9], we also suggest taking a look at our [Product Example Application][10].
+You can read about the Contentful CDA library in more detail on our [contentful.js GitHub][1] or our [Getting Started with CDA SDK tutorial][9]. We also suggest taking a look at our [Product Example Application][10].
 
 Do you like building static sites? Check how to build static sites using Contentful with [Metalsmith][11] 
 
@@ -123,4 +126,4 @@ Do you like building static sites? Check how to build static sites using Content
 [10]: https://github.com/contentful/product-catalogue-js
 [11]: https://github.com/contentful-labs/contentful-metalsmith-example
 [12]: https://git-scm.com/downloads
-[13]: https://git-scm.com/downloads
+[14]: https://devcenter.heroku.com/articles/heroku-command-line#download-and-install
