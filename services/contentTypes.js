@@ -8,11 +8,7 @@ function getContentTypes () {
   })
 }
 
-function getContentTypeById (id) {
-}
-
 module.exports = {
   contentTypes: contentTypes,
-  getContentTypes: getContentTypes,
-  getContentTypeById: getContentTypeById
+  getContentTypes: getContentTypes
 }
