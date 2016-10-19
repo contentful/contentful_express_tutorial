@@ -1,0 +1,6 @@
+{
+  "name": "Contentful Express.js Example",
+  "description": "This Example will show how to build a simple Express.js app using Contentful",
+  "repository": "https://github.com/contentful/contentful_express_tutorial",
+  "keywords": ["node", "express", "contentful"]
+}
