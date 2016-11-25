@@ -15,12 +15,16 @@ mixin renderProduct(product)
 mixin renderImage(image, slug, w)
   if image && image.fields.file
     if slug != ""
-      a(href="/products/"+slug data-nav) 
-        img(src=image.fields.file.url+"?w="+w alt=image.fields.title width=w)
+      a(href="/products/"+slug data-nav)
+        if(w)
+          img(src=image.fields.file.url+"?w="+w alt=image.fields.title)
+        else 
+          img(src=image.fields.file.url alt=image.fields.title)
+
     else if(w)
       img(src=image.fields.file.url+"?w="+w alt=image.fields.title width=w)
     else
-      img(src=image.fields.file.url+"?w="+w alt=image.fields.title)
+      img(src=image.fields.file.url alt=image.fields.title)
   else 
 
 
