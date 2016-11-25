@@ -213,8 +213,8 @@ a {
 }
 .tag {
   background: #eee;
+  color: #4A90E2;
   border-radius: 3px 0 0 3px;
-  color: #999;
   display: inline-block;
   height: 26px;
   line-height: 26px;
@@ -250,7 +250,7 @@ a {
 
 .tag:hover {
   background-color: #dbe3e7;
-  color: white;
+  color: #4A90E2;
 }
 
 .tag:hover::after {

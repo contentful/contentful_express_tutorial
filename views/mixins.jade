@@ -66,8 +66,7 @@ mixin renderTags(tags)
     span Tags:
     ul.tags
       for tag in tags
-        li.tag 
-          a(href="#") #{tag}
+        li.tag #{tag}
 
 mixin renderCategories(categories, products)
   .categories
