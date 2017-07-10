@@ -5,8 +5,8 @@
   "scripts": {
     "start": "npm run production",
     "heroku-prebuild": "npm install",
-    "dev": "NODE_ENV=development nodemon ./bin/www",
-    "production": "NODE_ENV=production node ./bin/www"
+    "dev": "cross-env NODE_ENV=development nodemon ./bin/www",
+    "production": "cross-env NODE_ENV=production node ./bin/www"
   },
   "config": {
     "accessToken": "0e3ec801b5af550c8a1257e8623b1c77ac9b3d8fcfc1b2b7494e3cb77878f92a",
@@ -24,5 +24,8 @@
     "morgan": "~1.7.0",
     "nodemon": "^1.11.0",
     "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "cross-env": "^5.0.1"
   }
 }
