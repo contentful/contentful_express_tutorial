@@ -6,7 +6,7 @@ function getCategory (id, query) {
   query = query || {}
   query['content_type'] = '6XwpTaSiiI2Ak2Ww0oi6qa'
   query['sys.id'] = id
-  return client.getEnries(query)
+  return client.getEntries(query)
 }
 
 function getCategories (query) {
