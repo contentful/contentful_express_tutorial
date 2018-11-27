@@ -57,6 +57,11 @@ You can create your own custom data by following these steps:
 
 ![Keys Page](keys_and_ids.png)
 
+- Change the product content type by your own, [here](https://github.com/contentful/contentful_express_tutorial/blob/master/services/products.js).
+e.g. replacing `2PqfXUJwE8qSYKuM0U6w8M` with `product`
+- Change the category content type by your own, [here](https://github.com/contentful/contentful_express_tutorial/blob/master/services/categories.js).
+e.g. replacing `6XwpTaSiiI2Ak2Ww0oi6qa` with `category`
+
 - In the Express js application:
   - navigate to the package.json file open it and change the values `accessToken` and `space` in the `config` section and save.
   - run `npm run dev` to start the server
