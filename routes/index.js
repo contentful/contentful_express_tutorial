@@ -7,6 +7,9 @@ router.use(function (req, res, next) {
   products.getProducts().then(function (productCollection) {
     req.products = productCollection
     next()
+  }).catch(function (err) {
+    console.log('index.js - getProducts (line 7) error:', JSON.stringify(err,null,2))
+    next()
   })
 })
 
