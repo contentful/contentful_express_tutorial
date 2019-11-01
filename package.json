@@ -18,7 +18,7 @@
     "contentful": "^3.6.4",
     "cookie-parser": "~1.4.3",
     "cross-env": "^5.0.1",
-    "debug": "~2.2.0",
+    "debug": "~4.1.1",
     "express": "^4.16.4",
     "helmet": "^2.2.0",
     "morgan": "^1.9.1",
